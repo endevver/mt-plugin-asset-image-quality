@@ -1,7 +1,7 @@
 name: 'Asset Image Quality'
 id: assetimagequality
 description: "Control the quality of generated JPEG image assets. Requires ImageMagick."
-version: 1.0
+version: 1.1
 author_name: Endevver
 author_link: http://endevver.com
 
