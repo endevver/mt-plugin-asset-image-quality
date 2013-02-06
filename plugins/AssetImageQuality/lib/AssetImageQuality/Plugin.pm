@@ -1,5 +1,9 @@
 package AssetImageQuality::Plugin;
 
+use strict;
+use warnings;
+
+# The cms_post_save.asset callback lets us access the image and work on it.
 sub quality {
     my ($cb, $app, $obj, $original) = @_;
     my $plugin = $cb->plugin;
@@ -50,8 +54,9 @@ sub quality {
     unless ($image) {
         MT->log({
             level   => MT->model('log')->ERROR(),
+            blog_id => $asset->blog_id,
             message => 'The Asset Image Quality plugin could not read the'
-                . ' specified file.',
+                . ' specified file at ' . $file_path . '.',
         });
         return;
     }
