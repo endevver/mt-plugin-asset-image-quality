@@ -1,0 +1,51 @@
+<p>The default JPEG compression level (as set by ImageMagick and used by Movable
+Type) is 92 (on a scale of 1-100, where a bigger number is more quality and less
+compression).</p>
+
+<mtapp:Setting
+    id="compression_quality_jpeg_large"
+    label="Large JPEG"
+    hint="A value of &ldquo;80&rdquo; will often halve the file size while still retaining excellent image quality."
+    show_hint="1">
+    <select
+        name="compression_quality_jpeg_large"
+        id="compression_quality_jpeg_large">
+    <mt:For from="1" to="100" step="1">
+        <mt:Var name="__index__" setvar="compression_quality">
+        <option value="<mt:Var name="compression_quality">"
+            <mt:If name="compression_quality_jpeg_large" eq="$compression_quality">selected</mt:If>>
+            <mt:Var name="compression_quality">
+        </option>
+    </mt:For>
+    </select>
+</mtapp:Setting>
+
+<mtapp:Setting
+    id="compression_quality_jpeg_small"
+    label="Small JPEG"
+    hint="Thumbnails can often be compressed much more because they are so small and contain relatively little detail compared to their larger counterpart. You can probably use a value of roughly 2/3 what is used for the Large JPEG selection and still create an acceptable image. For example, if you used &ldquo;80&rdquo; for the Large option, you can probably use roughly &ldquo;50&rdquo; for small."
+    show_hint="1">
+    <select
+        name="compression_quality_jpeg_small"
+        id="compression_quality_jpeg_small">
+    <mt:For from="1" to="100" step="1">
+        <mt:Var name="__index__" setvar="compression_quality">
+        <option value="<mt:Var name="compression_quality">"
+            <mt:If name="compression_quality_jpeg_small" eq="$compression_quality">selected</mt:If>>
+            <mt:Var name="compression_quality">
+        </option>
+    </mt:For>
+    </select>
+</mtapp:Setting>
+
+<mtapp:Setting
+    id="compression_quality_jpeg_size_threshold"
+    label="Large/Small Threshold"
+    hint="Specify an image dimension as the size threshold for determining whether the large or small compression value is applied."
+    show_hint="1">
+    <input type="text"
+        name="compression_quality_jpeg_size_threshold"
+        id="compression_quality_jpeg_size_threshold"
+        class="full text full-width"
+        value="<mt:Var name="compression_quality_jpeg_size_threshold" escape="html">" />
+</mtapp:Setting>

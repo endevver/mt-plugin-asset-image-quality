@@ -1,45 +1,22 @@
 name: 'Asset Image Quality'
 id: assetimagequality
-description: "Control the quality of generated JPEG image assets. Requires ImageMagick."
+description: "Control the quality of automatically generated JPEG image assets. Requires ImageMagick."
 version: 1.1
 author_name: Endevver
 author_link: http://endevver.com
 
 callbacks:
     cms_post_save.asset: $AssetImageQuality::AssetImageQuality::Plugin::quality
-    # I think I should be able to use the cms_upload_image callback here, 
-    # but it doesn't seem to return a hash of params. Perhaps I'm doing 
-    # something stupid causing it to not work? I'm not sure, and anyway
-    # cms_post_save.asset seems to work just fine.
 
-options:
-    fieldsets:
-        jpeg:
-            label: 'JPEG Image Compression Quality'
-            hint: "The default JPEG compression level (as set by ImageMagick and used by Melody and Movable Type) is 92 (on a scale of 1-100, where a bigger number is more quality and less compression)."
-            order: 1
+system_config_template: config.mtml
+
+settings:
     compression_quality_jpeg_large:
         scope: system
-        label: 'Large JPEG'
-        hint: 'A value of 80 will often halve the file size while still retaining excellent image quality.'
-        type: text
-        default: '92'
-        fieldset: jpeg
-        order: 1
+        default: 92
     compression_quality_jpeg_small:
         scope: system
-        label: 'Small JPEG'
-        hint: 'Thumbnails can often be compressed much more because they are so small and contain relatively little detail compared to their larger counterpart. You can probably use a value of roughly 2/3 what is used for the "large" selection and still create an acceptable image. For example, if you used "80" for the Large option, you can probably use roughly "50" for small.'
-        type: text
-        default: '92'
-        fieldset: jpeg
-        order: 2
+        default: 92
     compression_quality_jpeg_size_threshold:
         scope: system
-        label: 'Large/Small Threshold'
-        type: text
-        default: '250'
-        hint: 'Specify an image dimension as the size threshold for determining whether the large or small compression value is applied.'
-        fieldset: jpeg
-        order: 3
-
+        default: 250
