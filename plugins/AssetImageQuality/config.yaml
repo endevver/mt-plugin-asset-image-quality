@@ -4,6 +4,7 @@ description: "Control the quality of automatically generated JPEG image assets. 
 version: 1.1
 author_name: Endevver
 author_link: http://endevver.com
+plugin_link: https://github.com/endevver/mt-plugin-asset-image-quality
 
 callbacks:
     cms_post_save.asset: $AssetImageQuality::AssetImageQuality::Plugin::quality
