@@ -1,7 +1,7 @@
 name:        'Asset Image Quality'
 id:          assetimagequality
 description: "Control the quality of automatically generated JPEG image assets. Requires ImageMagick."
-version:     1.2.0
+version:     1.2.1
 author_name: 'Dan Wolfgang, Endevver'
 author_link: http://endevver.com
 plugin_link: https://github.com/endevver/mt-plugin-asset-image-quality
